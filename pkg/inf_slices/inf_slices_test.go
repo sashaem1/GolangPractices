@@ -1,6 +1,9 @@
 package inf_slices
 
-import "testing"
+import (
+	"slices"
+	"testing"
+)
 
 func TestCombineSlices(t *testing.T) {
 	testData := []struct {
@@ -34,7 +37,7 @@ func TestCombineSlices(t *testing.T) {
 	for _, testCase := range testData {
 		result := CombineSlices(testCase.data...)
 
-		if !slicesEqual(result, testCase.expected) {
+		if !slices.Equal(result, testCase.expected) {
 			t.Errorf("Неверный результат. Ожидалось: %d, получено: %d", testCase.expected, result)
 		}
 	}
